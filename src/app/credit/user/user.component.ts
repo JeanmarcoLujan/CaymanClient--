@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CaymanAPIService } from 'src/app/services/cayman-api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  userList$!: Observable<any[]>;
+  readonly inspectionAPIUrl = environment.baseUrl;
+  
+  constructor(private service: CaymanAPIService) { }
 
   ngOnInit(): void {
+    this.userList$ = this.service.getAll(this.inspectionAPIUrl + '/User'); 
   }
 
 }

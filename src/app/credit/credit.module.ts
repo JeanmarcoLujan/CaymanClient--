@@ -11,6 +11,7 @@ import { CreditRoutingModule } from './credit-routing.module';
 import { FormsModule } from '@angular/forms';
 import { InspectionComponent } from './inspection/inspection.component';
 import { ApprovalComponent } from './approval/approval.component';
+import { ApplicationComponent } from './application/application.component';
 
 
 
@@ -22,7 +23,8 @@ import { ApprovalComponent } from './approval/approval.component';
     AreaComponent,
     CustomerComponent,
     InspectionComponent,
-    ApprovalComponent
+    ApprovalComponent,
+    ApplicationComponent
   ],
   imports: [
     CommonModule,

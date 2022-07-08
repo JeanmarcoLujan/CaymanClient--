@@ -9,6 +9,7 @@ import { AreaComponent } from './area/area.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { InspectionComponent } from './inspection/inspection.component';
 import { ApprovalComponent } from './approval/approval.component';
+import { ApplicationComponent } from './application/application.component';
 
 const routes:Routes=[
   {path:'credito', component:CreditComponent, canActivate:[AuthGuard], 
@@ -19,7 +20,8 @@ const routes:Routes=[
     {path: 'area', component: AreaComponent},
     {path: 'cliente', component: CustomerComponent},
     {path: 'inspeccion', component: InspectionComponent},
-    {path: 'aprobacion', component: ApprovalComponent}
+    {path: 'aprobacion', component: ApprovalComponent},
+    {path: 'solicitud', component: ApplicationComponent}
 
   ]
   }
