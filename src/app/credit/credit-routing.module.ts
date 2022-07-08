@@ -6,9 +6,10 @@ import { UserComponent } from './user/user.component';
 import { RoleComponent } from './role/role.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AreaComponent } from './area/area.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes:Routes=[
-  {path:'credito', component:CreditComponent, 
+  {path:'credito', component:CreditComponent, canActivate:[AuthGuard], 
   children:[
     {path: '', component: CreditComponent },
     {path: 'usuario', component: UserComponent},

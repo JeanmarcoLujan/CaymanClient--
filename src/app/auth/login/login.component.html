@@ -1,11 +1,11 @@
 <div>
     
     <div class="wrapper">
-        <form class="form-signin">
+        <form class="form-signin" (ngSubmit)="Login()" [formGroup]="formLogin">
             <h2 style="text-align: center;" class="form-signin-heading">Iniciar sesión</h2>
-            <input type="text" class="form-control" name="username" placeholder="Email Address" required=""
-                autofocus="" />
-            <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+            <input type="text" class="form-control" name="username" placeholder="Ususario" required=""
+                autofocus="" formControlName="nick" />
+            <input type="password" class="form-control" name="password" placeholder="Password" required="" formControlName="password" />
             <div class="btn-login">
                 <button class="btn btn-lg btn-info btn-block" type="submit">Ingresar</button>
             </div>
