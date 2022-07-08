@@ -7,6 +7,8 @@ import { RoleComponent } from './role/role.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AreaComponent } from './area/area.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { InspectionComponent } from './inspection/inspection.component';
+import { ApprovalComponent } from './approval/approval.component';
 
 const routes:Routes=[
   {path:'credito', component:CreditComponent, canActivate:[AuthGuard], 
@@ -15,7 +17,9 @@ const routes:Routes=[
     {path: 'usuario', component: UserComponent},
     {path: 'rol', component: RoleComponent},
     {path: 'area', component: AreaComponent},
-    {path: 'cliente', component: CustomerComponent}
+    {path: 'cliente', component: CustomerComponent},
+    {path: 'inspeccion', component: InspectionComponent},
+    {path: 'aprobacion', component: ApprovalComponent}
 
   ]
   }

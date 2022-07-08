@@ -18,7 +18,7 @@
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+      <a class="navbar-brand mt-2 mt-lg-0" [routerLink]="['/dashboard']"  >
         <!--
         <img
           src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
@@ -30,17 +30,24 @@
       </a>
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Mantenimiento</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento
+          </a>
+          <div class="dropdown-menu dropdown-content1" aria-labelledby="navbarDropdown">
+            <a [routerLink]="['/credito/area']" class="dropdown-item"  >Areas</a>
+            <a [routerLink]="['/credito/rol']" class="dropdown-item" >Roles</a>
+            <a [routerLink]="['/credito/usuario']" class="dropdown-item" >Usuarios</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Créditos</a>
+          <a [routerLink]="['/credito/cliente']" class="nav-link" >Créditos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Inspecciones</a>
+          <a [routerLink]="['/credito/inspeccion']"  class="nav-link" >Inspecciones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Aprobaciones</a>
+          <a [routerLink]="['/credito/aprobacion']" class="nav-link" >Aprobaciones</a>
         </li>
         <!--
         <li class="nav-item dropdown">

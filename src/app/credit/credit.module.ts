@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CreditRoutingModule } from './credit-routing.module';
 import { FormsModule } from '@angular/forms';
+import { InspectionComponent } from './inspection/inspection.component';
+import { ApprovalComponent } from './approval/approval.component';
 
 
 
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     RoleComponent,
     AreaComponent,
-    CustomerComponent
+    CustomerComponent,
+    InspectionComponent,
+    ApprovalComponent
   ],
   imports: [
     CommonModule,
