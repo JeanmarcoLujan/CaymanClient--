@@ -1,58 +1,106 @@
-<section class="navigation">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="#!">Logo</a>
-      </div>
-      <nav>
-        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-        <ul class="nav-list">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <!--
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="15"
+          alt="MDB Logo"
+          loading="lazy"
+        />-->
+        CAYMAN
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Mantenimiento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Créditos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Inspecciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Aprobaciones</a>
+        </li>
+        <!--
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Creditos
+          </a>
+          <div class="dropdown-menu dropdown-content1" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        -->
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+
+      
+      <!-- Avatar -->
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="25"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end dropdown-content"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
           <li>
-            <a href="#!">Home</a>
+            <a class="dropdown-item" href="#">Mi pefil</a>
           </li>
           <li>
-            <a href="#!">About</a>
-          </li>
-          <li>
-            <a href="#!">Services</a>
-            <ul class="nav-dropdown">
-              <li>
-                <a href="#!">Web Design</a>
-              </li>
-              <li>
-                <a href="#!">Web Development</a>
-              </li>
-              <li>
-                <a href="#!">Graphic Design</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#!">Pricing</a>
-          </li>
-          <li>
-            <a href="#!">Portfolio</a>
-            <ul class="nav-dropdown">
-              <li>
-                <a href="#!">Web Design</a>
-              </li>
-              <li>
-                <a href="#!">Web Development</a>
-              </li>
-              <li>
-                <a href="#!">Graphic Design</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#!">Contact</a>
+            <a class="dropdown-item" href="#">Salir</a>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </section>
-  
-  <article>
-    <h2>Navigation</h2>
-    <p>Responsive Dropdown Navigation Bar.</p>
-    <p>Want to see how it's made? <a href="http://www.taniarascia.com/responsive-dropdown-navigation-bar/">Read the tutorial!</a></p>
-  </article>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
