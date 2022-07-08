@@ -5,6 +5,10 @@ import { UserComponent } from './user/user.component';
 import { RoleComponent } from './role/role.component';
 import { AreaComponent } from './area/area.component';
 import { CustomerComponent } from './customer/customer.component';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { CreditRoutingModule } from './credit-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +21,11 @@ import { CustomerComponent } from './customer/customer.component';
     CustomerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CreditRoutingModule,
+    RouterModule,
+    SharedModule,
+    FormsModule
   ]
 })
 export class CreditModule { }
