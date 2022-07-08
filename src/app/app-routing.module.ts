@@ -6,8 +6,9 @@ import { CreditRoutingModule } from './credit/credit-routing.module';
 import { GeneralRoutingModule } from './general/general-routing.module';
 
 const routes: Routes=[
-  {path: '', redirectTo:'/login', pathMatch:'full'}
+  {path:'', redirectTo:'/login', pathMatch: 'full' }
 ]
+
 
 @NgModule({
   declarations: [],

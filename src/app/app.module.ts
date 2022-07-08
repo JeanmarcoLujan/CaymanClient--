@@ -4,8 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { CreditModule } from './credit/credit.module';
 import { GeneralModule } from './general/general.module';
-import { HeaderComponent } from './shared/header/header.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -18,7 +18,8 @@ import { SharedModule } from './shared/shared.module';
     AuthModule,
     GeneralModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    CreditModule
   ],
   providers: [],
   bootstrap: [AppComponent]

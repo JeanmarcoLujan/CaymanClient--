@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GeneralComponent } from './general.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,9 +11,12 @@ import { DasboardComponent } from './dasboard/dasboard.component';
   declarations: [
     GeneralComponent,
     DasboardComponent
+    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule, 
+    RouterModule
   ]
 })
 export class GeneralModule { }
