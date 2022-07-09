@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { InspectionComponent } from './inspection/inspection.component';
 import { ApprovalComponent } from './approval/approval.component';
 import { ApplicationComponent } from './application/application.component';
+import { ApplicationCreateComponent } from './application-create/application-create.component';
+import { CustomerModule } from './customer/customer.module';
 
 
 
@@ -24,14 +26,16 @@ import { ApplicationComponent } from './application/application.component';
     CustomerComponent,
     InspectionComponent,
     ApprovalComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    ApplicationCreateComponent
   ],
   imports: [
     CommonModule,
     CreditRoutingModule,
     RouterModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    CustomerModule
   ]
 })
 export class CreditModule { }
