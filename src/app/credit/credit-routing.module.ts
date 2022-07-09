@@ -10,6 +10,9 @@ import { AuthGuard } from '../guards/auth.guard';
 import { InspectionComponent } from './inspection/inspection.component';
 import { ApprovalComponent } from './approval/approval.component';
 import { ApplicationComponent } from './application/application.component';
+import { ApplicationCreateComponent } from './application-create/application-create.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerCreateComponent } from './customer/customer-create/customer-create.component';
 
 const routes:Routes=[
   {path:'credito', component:CreditComponent, canActivate:[AuthGuard], 
@@ -18,10 +21,18 @@ const routes:Routes=[
     {path: 'usuario', component: UserComponent},
     {path: 'rol', component: RoleComponent},
     {path: 'area', component: AreaComponent},
-    {path: 'cliente', component: CustomerComponent},
     {path: 'inspeccion', component: InspectionComponent},
     {path: 'aprobacion', component: ApprovalComponent},
-    {path: 'solicitud', component: ApplicationComponent}
+    {path: 'solicitud', component: ApplicationComponent},
+    {path: 'solicitud/crear', component: ApplicationCreateComponent}
+
+  ]
+  },
+
+  {path:'cliente', component:CustomerComponent, canActivate:[AuthGuard], 
+  children:[
+    {path: '', component: CustomerListComponent },
+    {path: 'crear', component: CustomerCreateComponent}
 
   ]
   }

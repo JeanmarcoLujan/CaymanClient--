@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CaymanAPIService } from 'src/app/services/cayman-api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-customer',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
