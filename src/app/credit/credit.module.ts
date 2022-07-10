@@ -8,7 +8,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CreditRoutingModule } from './credit-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InspectionComponent } from './inspection/inspection.component';
 import { ApprovalComponent } from './approval/approval.component';
 import { ApplicationComponent } from './application/application.component';
@@ -34,8 +34,7 @@ import { CustomerModule } from './customer/customer.module';
     CreditRoutingModule,
     RouterModule,
     SharedModule,
-    FormsModule,
-    CustomerModule
+    CustomerModule,
   ]
 })
 export class CreditModule { }

@@ -11,6 +11,8 @@ import { GeneralModule } from './general/general.module';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { CaymanAPIService } from './services/cayman-api.service';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
     HttpClientModule,
     GeneralModule,
     AuthModule,
     SharedModule,
-    CreditModule
+    CreditModule,
+    BrowserAnimationsModule
   ],
   providers: [
     CookieService,

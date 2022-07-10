@@ -5,7 +5,12 @@ import { CustomerCreateComponent } from './customer-create/customer-create.compo
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,8 +19,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class CustomerModule { }
