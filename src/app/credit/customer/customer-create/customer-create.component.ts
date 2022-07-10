@@ -18,35 +18,45 @@ export class CustomerCreateComponent implements OnInit {
   educations$!: any;
   readonly inspectionAPIUrl = environment.baseUrl;
 
- 
+  step: any = 1;
+
 
   firstFormGroup!: FormGroup;
 
   constructor(private service: CaymanAPIService, private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.step = 1;
     this.getDocTypes();
     this.getDeparments();
     this.getCivils();
     this.getEducations();
     this.firstFormGroup = this._formBuilder.group({
-      docTypeId: ['', Validators.required],
+      docTypeId: [0, Validators.required],
       numDoc: ['', Validators.required],
       nameDoc: ['', Validators.required],
       phone: ['', Validators.required],
       email: ['', Validators.required],
-      districtId: ['', Validators.required],
+      districtId: [0, Validators.required],
       address: ['', Validators.required],
-      civilId: ['', Validators.required],
-      educationId: ['', Validators.required],
+      civilId: [0, Validators.required],
+      educationId: [0, Validators.required],
       ruc: ['', Validators.required],
       nameRuc: ['', Validators.required],
       addressRuc: ['', Validators.required]
     });
   }
 
+  next(): void{
+    this.step = this.step+1;
+  }
+
+  previous():void{
+    this.step = this.step-1;
+  }
+
   submit() {
-    console.log(this.firstFormGroup.value);
+    
     this.service.post(this.inspectionAPIUrl + '/Customer', this.firstFormGroup.value)
     .subscribe(
       response => {
@@ -56,6 +66,7 @@ export class CustomerCreateComponent implements OnInit {
       error => {
         console.log(error);
       });
+      
   }
 
 
