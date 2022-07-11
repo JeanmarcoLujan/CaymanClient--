@@ -2,6 +2,104 @@
     <br>
     <h4>Solicitud</h4>
     <hr>
-    <div class="btn_new"><button [routerLink]="['/solicitud']" class="btn btn-light btn-sm"><i class="bi bi-arrow-left"></i>
-        Volver</button></div><br>
+    <div class="btn_new"><button [routerLink]="['/solicitud']" class="btn btn-light btn-sm"><i
+                class="bi bi-arrow-left"></i>
+            Volver</button></div><br>
+
+    <div class="row">
+        <form (ngSubmit)="submit()" [formGroup]="firstFormGroup">
+            <div *ngIf="step == 1">
+                <h5> {{step}}/4 Información cliente</h5>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Cliente</label>
+                    <select class="form-control" formControlName="customerId">
+                        <option value="0" selected disabled>Seleccionar un cliente</option>
+                        <option *ngFor="let c of customer$" [value]="c.id">{{c.nameDoc}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Salario</label>
+                    <input type="text" class="form-control" formControlName="salary" placeholder="Salario">
+                </div>
+            </div>
+            <div *ngIf="step == 2">
+                <h5>{{step}}/4 Información Producto</h5>
+                <div class="form-group">
+                    <label>Producto</label>
+                    <select class="form-control" formControlName="productId">
+                        <option value="0" selected disabled>Seleccionar un producto</option>
+                        <option *ngFor="let c of products$" [value]="c.id">{{c.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Monto </label>
+                    <input type="text" class="form-control" formControlName="amount" placeholder="Monto solicitado">
+                </div>
+            </div>
+            <div *ngIf="step == 3">
+                <h5>{{step}}/4 Información crediticia</h5>
+                <div class="form-group">
+                    <label>Producto crediticio</label>
+                    <select class="form-control" formControlName="creditProductId">
+                        <option value="0" selected disabled>Seleccionar un producto crediticio</option>
+                        <option *ngFor="let c of creditProducts$" [value]="c.id">{{c.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Garantia</label>
+                    <select class="form-control" formControlName="assuranceId">
+                        <option value="0" selected disabled>Seleccionar una garantia</option>
+                        <option *ngFor="let c of assurances$" [value]="c.id">{{c.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Monto solicitado</label>
+                    <input type="text" class="form-control" formControlName="requestAmount" placeholder="Monto solicitado">
+                </div>
+
+            </div>
+            <div *ngIf="step == 4">
+                <h5>{{step}}/4 Resumen crediticio</h5>
+                
+                <div class="form-group">
+                    <label>Costo de trámite</label>
+                    <input type="text" class="form-control" formControlName="procedureCost" placeholder="Costo de trámite">
+                </div>
+                <div class="form-group">
+                    <label>Costo de seguro</label>
+                    <input type="text" class="form-control" formControlName="insuranceCost" placeholder="Costo de seguro">
+                </div>
+                <div class="form-group">
+                    <label>Número de cuotas</label>
+                    <input type="text" class="form-control" formControlName="numberFees" placeholder="Número de cuotas">
+                </div>
+                <div class="form-group">
+                    <label>Cuota inicial</label>
+                    <input type="text" class="form-control" formControlName="initialFee" placeholder="Cuota inicial">
+                </div>
+                <div class="form-group">
+                    <label>Tasa de interés</label>
+                    <input type="text" class="form-control" formControlName="interestRate" placeholder="Tasa de interés">
+                </div>
+                <div class="form-group">
+                    <label>Valor de cuota</label>
+                    <input type="text" class="form-control" formControlName="amountFee" placeholder="Valor de cuota">
+                </div>
+
+            </div>
+
+
+            <br>
+            <div class="form-group">
+                <a class="btn btn-info mx-1" [class.disabled]="step==1" (click)="previous()"> <i
+                        class="bi bi-chevron-left"></i> Atrás</a>
+                <a class="btn btn-info mx-1" [class.disabled]="step==4" (click)="next()"> Siguiente <i
+                        class="bi bi-chevron-right"></i></a>
+                <button class="btn btn-success" type="submit" [disabled]="step!=4">Registrar socilitud</button>
+            </div>
+            <br><br>
+
+        </form>
+
+    </div>
 </div>

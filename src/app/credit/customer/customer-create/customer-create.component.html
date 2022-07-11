@@ -5,25 +5,42 @@
   <div class="btn_new"><button [routerLink]="['/cliente']" class="btn btn-light btn-sm"><i class="bi bi-arrow-left"></i>
       Volver</button></div><br>
   <div class="row">
-    
+
     <form (ngSubmit)="submit()" [formGroup]="firstFormGroup">
 
       <div *ngIf="step == 1">
-        <h5>Información personal</h5>
+        <h5>{{step}}/3 Información personal</h5>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Tipo de documento</label>
-          <select class="form-control" formControlName="docTypeId">
+          <select class="form-control" formControlName="docTypeId" [(ngModel)]="person.documentType">
             <option value="0" selected disabled>Seleccionar tipo de documento</option>
             <option *ngFor="let c of docTypes$" [value]="c.id">{{c.name}}</option>
           </select>
         </div>
         <div class="form-group">
+          <label for="exampleFormControlSelect1">Tipo de persona</label>
+          <select class="form-control" formControlName="personTypeId" [(ngModel)]="person.personType">
+            <option value="0" selected disabled>Seleccionar tipo de persona</option>
+            <option *ngFor="let c of personTypes$" [value]="c.id">{{c.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Número de documento</label>
+          <!--
           <input type="text" class="form-control" formControlName="numDoc" placeholder="Numero de documento">
+-->       
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="numDoc" [(ngModel)]="person.documentNumber" placeholder="Numero de documento" >
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="foundCustomer()">Buscar</button>
+          </div>
+          </div>
+          
         </div>
         <div class="form-group">
           <label>Apellidos y nombres</label>
-          <input type="text" class="form-control" formControlName="nameDoc" placeholder="Apellidos y nombres">
+          <input type="text" class="form-control" formControlName="nameDoc" [(ngModel)]="nameFound"
+            placeholder="Apellidos y nombres">
         </div>
         <div class="form-group">
           <label>Teléfono</label>
@@ -36,7 +53,7 @@
       </div>
 
       <div *ngIf="step == 2">
-        <h5>Informacion adicional</h5>
+        <h5>{{step}}/3 Informacion adicional</h5>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Departamento</label>
           <select class="form-control" (change)="getProvinces($event.target);">
@@ -79,7 +96,7 @@
       </div>
 
       <div *ngIf="step == 3">
-        <h5>Información tributaria</h5>
+        <h5>{{step}}/3 Información tributaria</h5>
         <div class="form-group">
           <label>RUC</label>
           <input type="text" class="form-control" formControlName="ruc" placeholder="Ruc">
@@ -95,16 +112,18 @@
       </div>
 
 
-      
+
       <br>
       <div class="form-group">
-        <a class="btn btn-info mx-1" [class.disabled] ="step==1" (click)="previous()"> <i class="bi bi-chevron-left"></i> Atrás</a>
-        <a class="btn btn-info mx-1" [class.disabled] ="step==3" (click)="next()">  Siguiente <i class="bi bi-chevron-right"></i></a>
+        <a class="btn btn-info mx-1" [class.disabled]="step==1" (click)="previous()"> <i class="bi bi-chevron-left"></i>
+          Atrás</a>
+        <a class="btn btn-info mx-1" [class.disabled]="step==3" (click)="next()"> Siguiente <i
+            class="bi bi-chevron-right"></i></a>
         <button class="btn btn-success" type="submit" [disabled]="step!=3">Registrar cliente</button>
       </div>
       <br><br>
     </form>
 
-    
+
   </div>
 </div>
