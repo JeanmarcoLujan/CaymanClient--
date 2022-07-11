@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { CaymanAPIService } from 'src/app/services/cayman-api.service';
 import { environment } from 'src/environments/environment';
 
@@ -29,7 +30,10 @@ export class ApplicationCreateComponent implements OnInit {
   score_crediticio:any = 0;
   customer_crediticio: any='';
 
-  constructor(private service: CaymanAPIService, private _formBuilder: FormBuilder, private router: Router) { }
+  constructor(private service: CaymanAPIService, 
+    private _formBuilder: FormBuilder, 
+    private router: Router,
+    private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -50,8 +54,11 @@ export class ApplicationCreateComponent implements OnInit {
       numberFees: ['', Validators.required],
       initialFee: ['', Validators.required],
       interestRate: ['', Validators.required],
-      amountFee: ['', Validators.required]
+      amountFee: ['', Validators.required],
+      userId: [this.cookieService.get('userId'), Validators.required]
     });
+
+    
   }
 
   findScore(da: any): void{
@@ -81,6 +88,7 @@ export class ApplicationCreateComponent implements OnInit {
 
   submit() {
     
+    
     this.service.post(this.inspectionAPIUrl + '/Application', this.firstFormGroup.value)
     .subscribe(
       response => {
@@ -89,6 +97,8 @@ export class ApplicationCreateComponent implements OnInit {
       error => {
         console.log(error);
       });
+
+      
       
   }
 

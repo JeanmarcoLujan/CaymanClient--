@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
       password: this.formLogin.value.password,
     };
 
-    console.log(usuarioLogin);
+    
+    //console.log(usuarioLogin);
 
 
     this.subRef$ = this.service.post<any>(this.url,
@@ -50,10 +51,11 @@ export class LoginComponent implements OnInit {
       .subscribe(res => {
         const token = res.body.response;
        // console.log('token', token);
-        //console.log(res.body.token);
+        //console.log(res.body);
         //this.securityService.SetAuthData(token);
         this.cookieService.set('token',res.body.token);
         this.cookieService.set('userName', res.body.admin);
+        this.cookieService.set('userId', res.body.id);
         this.router.navigate(['/dashboard']);
         //this.errorMessage = false;
       }, err => {

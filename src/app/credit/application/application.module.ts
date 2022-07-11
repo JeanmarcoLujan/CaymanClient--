@@ -5,13 +5,17 @@ import { ApplicationListComponent } from './application-list/application-list.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ApplicationApprovalComponent } from './application-approval/application-approval.component';
+import { ApplicationInspectionComponent } from './application-inspection/application-inspection.component';
 
 
 
 @NgModule({
   declarations: [
     ApplicationCreateComponent,
-    ApplicationListComponent
+    ApplicationListComponent,
+    ApplicationApprovalComponent,
+    ApplicationInspectionComponent
   ],
   imports: [
     CommonModule,

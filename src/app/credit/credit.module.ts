@@ -8,8 +8,6 @@ import { CustomerComponent } from './customer/customer.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CreditRoutingModule } from './credit-routing.module';
-import { InspectionComponent } from './inspection/inspection.component';
-import { ApprovalComponent } from './approval/approval.component';
 import { ApplicationComponent } from './application/application.component';
 import { CustomerModule } from './customer/customer.module';
 import { ApplicationModule } from './application/application.module';
@@ -23,8 +21,6 @@ import { ApplicationModule } from './application/application.module';
     RoleComponent,
     AreaComponent,
     CustomerComponent,
-    InspectionComponent,
-    ApprovalComponent,
     ApplicationComponent
   ],
   imports: [
