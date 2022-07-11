@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomerListComponent } from './customer-list/customer-list.component';
-import { CustomerCreateComponent } from './customer-create/customer-create.component';
+import { ApplicationCreateComponent } from './application-create/application-create.component';
+import { ApplicationListComponent } from './application-list/application-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    CustomerListComponent,
-    CustomerCreateComponent
+    ApplicationCreateComponent,
+    ApplicationListComponent
   ],
   imports: [
     CommonModule,
@@ -20,4 +21,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule
   ]
 })
-export class CustomerModule { }
+export class ApplicationModule { }
