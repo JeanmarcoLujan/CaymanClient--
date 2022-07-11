@@ -7,12 +7,13 @@
             Volver</button></div><br>
 
     <div class="row">
+        <h6 *ngIf="score_crediticio!=0" style="background-color: yellow;" >Cliente:{{customer_crediticio}}  - Score EQUIFAX: {{score_crediticio}}</h6>
         <form (ngSubmit)="submit()" [formGroup]="firstFormGroup">
             <div *ngIf="step == 1">
                 <h5> {{step}}/4 Información cliente</h5>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Cliente</label>
-                    <select class="form-control" formControlName="customerId">
+                    <select class="form-control" formControlName="customerId"  (change)="findScore($event.target)">
                         <option value="0" selected disabled>Seleccionar un cliente</option>
                         <option *ngFor="let c of customer$" [value]="c.id">{{c.nameDoc}}</option>
                     </select>

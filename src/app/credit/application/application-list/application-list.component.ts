@@ -19,10 +19,7 @@ export class ApplicationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.solicitudList$ = this.service.getAll(this.inspectionAPIUrl + '/Application'); 
-    this.service.getAll(this.inspectionAPIUrl + '/Application')
-    .subscribe(a=>{
-      console.log(a)
-    }); 
+    
   }
 
 }

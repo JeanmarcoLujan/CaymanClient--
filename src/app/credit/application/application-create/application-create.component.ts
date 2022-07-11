@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CaymanAPIService } from 'src/app/services/cayman-api.service';
 import { environment } from 'src/environments/environment';
 
@@ -21,8 +22,14 @@ export class ApplicationCreateComponent implements OnInit {
   myDate = new Date();
 
   firstFormGroup!: FormGroup;
+  customer:any ={
+    id:0
+  }
 
-  constructor(private service: CaymanAPIService, private _formBuilder: FormBuilder) { }
+  score_crediticio:any = 0;
+  customer_crediticio: any='';
+
+  constructor(private service: CaymanAPIService, private _formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -47,6 +54,22 @@ export class ApplicationCreateComponent implements OnInit {
     });
   }
 
+  findScore(da: any): void{
+    const data={
+      customerId: da.value
+    }
+    this.service.post(this.inspectionAPIUrl + '/Equifax/byCustomerId', data)
+    .subscribe(
+      data => {
+      
+        this.score_crediticio = data.body;  
+        this.score_crediticio = this.score_crediticio.puntaje;
+        this.customer_crediticio = data.body;
+        this.customer_crediticio = this.customer_crediticio.names;
+        
+      });
+  }
+
 
   next(): void{
     this.step = this.step+1;
@@ -61,7 +84,7 @@ export class ApplicationCreateComponent implements OnInit {
     this.service.post(this.inspectionAPIUrl + '/Application', this.firstFormGroup.value)
     .subscribe(
       response => {
-        console.log(response);        
+        this.router.navigate(['/solicitud']);       
       },
       error => {
         console.log(error);
