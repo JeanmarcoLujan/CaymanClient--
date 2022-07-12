@@ -31,7 +31,10 @@ export class CustomerCreateComponent implements OnInit {
 
   firstFormGroup!: FormGroup;
 
-  constructor(private service: CaymanAPIService, private _formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private service: CaymanAPIService, 
+    private _formBuilder: FormBuilder, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.step = 1;
@@ -40,6 +43,7 @@ export class CustomerCreateComponent implements OnInit {
     this.getCivils();
     this.getEducations();
     this.getPersonTypes();
+
     this.firstFormGroup = this._formBuilder.group({
       docTypeId: [0, Validators.required],
       numDoc: ['', Validators.required],

@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Usuarios</h1>
+<div mat-dialog-content>
+    <form (ngSubmit)="submit()" [formGroup]="firstFormGroup">
+        <input type="text" hidden class="form-control" formControlName="id" >
+        <div class="form-group">
+            <label>Apelldos y nombres</label>
+            <input type="text" class="form-control" formControlName="name"   placeholder="Apellidos y nombres">
+        </div>
+        <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="text" class="form-control" formControlName="email"  placeholder="Correo electrónico">
+        </div>
+        <div class="form-group">
+            <label>Usuario</label>
+            <input type="text" class="form-control" formControlName="nickName" placeholder="Usuario para iniciar sesión">
+        </div>
+        <div class="form-group">
+            <label>Constraseña</label>
+            <input type="text" class="form-control" formControlName="password" placeholder="Contraseña">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Rol</label>
+            <select class="form-control" formControlName="roleId" >
+                <option value="0" selected disabled>Seleccionar rol</option>
+                <option *ngFor="let c of roles$" [value]="c.id">{{c.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Área</label>
+            <select class="form-control" formControlName="areaId" >
+                <option value="0" selected disabled>Seleccionar área</option>
+                <option *ngFor="let c of areas$" [value]="c.id">{{c.name}}</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <button mat-button mat-dialog-close class="btn btn-danger btn-sm mx-1">Cerrar</button>
+            <button type="submit" class="btn btn-info btn-sm" *ngIf="!updating" >Registrar</button>
+            <button type="submit" class="btn btn-info btn-sm" *ngIf="updating" >Actualizar</button>
+        </div>
+        
+    </form>
+</div>

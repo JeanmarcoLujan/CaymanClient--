@@ -11,6 +11,9 @@ import { CreditRoutingModule } from './credit-routing.module';
 import { ApplicationComponent } from './application/application.component';
 import { CustomerModule } from './customer/customer.module';
 import { ApplicationModule } from './application/application.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UserModalComponent } from './modals/user-modal/user-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +24,8 @@ import { ApplicationModule } from './application/application.module';
     RoleComponent,
     AreaComponent,
     CustomerComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    UserModalComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,10 @@ import { ApplicationModule } from './application/application.module';
     RouterModule,
     SharedModule,
     CustomerModule,
-    ApplicationModule
+    ApplicationModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class CreditModule { }
