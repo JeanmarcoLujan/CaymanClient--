@@ -39,7 +39,7 @@ export class ApplicationListComponent implements OnInit {
       width: '50%',
       data: {
         id: id,
-        state: 1
+        state: 2
       }
     });
   }

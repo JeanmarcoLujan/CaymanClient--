@@ -40,6 +40,7 @@ export class UserModalComponent implements OnInit {
     });
 
     if(this.data.id != null && this.data.id != ''){
+      console.log("ingreso")
       this.loadEditData(this.data.id);
       this.updating = true;
     }
@@ -61,9 +62,13 @@ export class UserModalComponent implements OnInit {
   }
 
   submit(){
-    if(this.data.id == null && this.data.id == ''){
+
+    console.log(this.data.id + "sdfsdfsdfsdfsdfsdf");
+
+    if(this.data.id != null && this.data.id != ''){
+      console.log("actualizando...")
       if (this.firstFormGroup.valid) {
-        this.service.postInModal(this.inspectionAPIUrl + '/User', this.firstFormGroup.value)
+        this.service.putInModal(this.inspectionAPIUrl + '/User/'+this.data.id, this.firstFormGroup.value)
           .subscribe(
             response => {
               this.matdialogref.close();
@@ -74,9 +79,11 @@ export class UserModalComponent implements OnInit {
       } else {
         alert("Por favor, asegurese de registrar todos los campos")
       }
+
     }else{
+      console.log("Registrando...")
       if (this.firstFormGroup.valid) {
-        this.service.putInModal(this.inspectionAPIUrl + '/User/'+this.data.id, this.firstFormGroup.value)
+        this.service.postInModal(this.inspectionAPIUrl + '/User', this.firstFormGroup.value)
           .subscribe(
             response => {
               this.matdialogref.close();

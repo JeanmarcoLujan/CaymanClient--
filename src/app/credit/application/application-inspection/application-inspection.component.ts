@@ -36,7 +36,7 @@ export class ApplicationInspectionComponent implements OnInit {
       width: '50%',
       data: {
         id: id,
-        state: 2
+        state: 3
       }
     });
   }

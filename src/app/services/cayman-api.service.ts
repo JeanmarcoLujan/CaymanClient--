@@ -77,5 +77,15 @@ export class CaymanAPIService {
     return this.http.get<any>(url);
   }
 
+  delete<T>(url: string): Observable<HttpResponse<T>> {
+    const httpHeaders: HttpHeaders = this.getHeaders();
+
+    return this.http.delete<T>(url,
+      {
+        headers: httpHeaders,
+        observe: 'response'
+      });
+  }
+
 
 }
