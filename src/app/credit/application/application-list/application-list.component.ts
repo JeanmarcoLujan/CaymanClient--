@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { CaymanAPIService } from 'src/app/services/cayman-api.service';
 import { environment } from 'src/environments/environment';
+import { ApplicationUpdateModalComponent } from '../../modals/application-update-modal/application-update-modal.component';
 
 @Component({
   selector: 'app-application-list',
@@ -17,33 +17,31 @@ export class ApplicationListComponent implements OnInit {
 
 
 
-  constructor(private service: CaymanAPIService, private cookieService: CookieService) { }
+  constructor(private service: CaymanAPIService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.solicitudList$ = this.service.getAll(this.inspectionAPIUrl + '/Application');
+    this.service.requiredRefresh.subscribe(r=>{
+      this.solicitudList$ = this.service.getAll(this.inspectionAPIUrl + '/Application');
+    });
 
   }
 
   inspection(id: any): void {
-    const data = {
-      id: id,
-      userId: this.cookieService.get('userId'),
-      state: 1
-    }
+    this.openDialog("1000ms","500ms", id);
+  }
 
-    var opcion = confirm("Está solicitud, pasara a inspeccionarse, ¿de acuerdo?");
-    if (opcion == true) {
-      this.service.put(this.inspectionAPIUrl + '/Application/' + id, data)
-      .subscribe(
-        response => {
-          this.solicitudList$ = this.service.getAll(this.inspectionAPIUrl + '/Application');     
-        },
-        error => {
-          console.log(error);
-        });
-    } 
 
-    
+  openDialog(enteranimation:any, exitanimation: any, id: any){
+    this.dialog.open(ApplicationUpdateModalComponent,{
+      enterAnimationDuration: enteranimation,
+      exitAnimationDuration: exitanimation,
+      width: '50%',
+      data: {
+        id: id,
+        state: 1
+      }
+    });
   }
 
 }

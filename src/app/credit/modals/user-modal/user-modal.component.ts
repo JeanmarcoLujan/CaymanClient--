@@ -88,9 +88,7 @@ export class UserModalComponent implements OnInit {
         alert("Por favor, asegurese de registrar todos los campos")
       }
     }
-
-    
-    
+ 
   }
 
   loadEditData(data:any){

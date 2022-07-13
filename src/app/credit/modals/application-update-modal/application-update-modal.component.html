@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Actualzizar solicitud</h1>
+<div mat-dialog-content>
+    <form (ngSubmit)="submit()" [formGroup]="firstFormGroup">
+        <input type="text" hidden class="form-control" formControlName="id" >
+        <input type="text" hidden class="form-control" formControlName="state" >
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Usuario</label>
+            <select class="form-control" formControlName="userId" >
+                <option value="0" selected disabled>Seleccionar usuario</option>
+                <option *ngFor="let c of userList$" [value]="c.id">{{c.name}}</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <button mat-button mat-dialog-close class="btn btn-danger btn-sm mx-1">Cerrar</button>
+            <button type="submit" class="btn btn-info btn-sm" >Actualizar</button>
+        </div>
+        
+    </form>
+</div>

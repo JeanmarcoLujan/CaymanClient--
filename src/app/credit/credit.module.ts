@@ -14,6 +14,7 @@ import { ApplicationModule } from './application/application.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserModalComponent } from './modals/user-modal/user-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplicationUpdateModalComponent } from './modals/application-update-modal/application-update-modal.component';
 
 
 
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AreaComponent,
     CustomerComponent,
     ApplicationComponent,
-    UserModalComponent
+    UserModalComponent,
+    ApplicationUpdateModalComponent
   ],
   imports: [
     CommonModule,
