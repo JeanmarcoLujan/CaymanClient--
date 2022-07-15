@@ -3,7 +3,8 @@ body {
 }
 
 .wrapper {
-    margin-top: 80px;
+    margin-top: 0;
+    padding: 80px;
     margin-bottom: 80px;
 }
 
@@ -55,4 +56,10 @@ input[type="password"] {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.login{
+    margin: 0;
+    height: 100%;
+    background-image: url("../../../assets/img/wallper.png");
 }

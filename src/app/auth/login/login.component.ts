@@ -50,9 +50,6 @@ export class LoginComponent implements OnInit {
       usuarioLogin)
       .subscribe(res => {
         const token = res.body.response;
-       // console.log('token', token);
-        //console.log(res.body);
-        //this.securityService.SetAuthData(token);
         this.cookieService.set('token',res.body.token);
         this.cookieService.set('userName', res.body.admin);
         this.cookieService.set('userId', res.body.id);
