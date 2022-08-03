@@ -63,10 +63,7 @@ export class UserModalComponent implements OnInit {
 
   submit(){
 
-    console.log(this.data.id + "sdfsdfsdfsdfsdfsdf");
-
     if(this.data.id != null && this.data.id != ''){
-      console.log("actualizando...")
       if (this.firstFormGroup.valid) {
         this.service.putInModal(this.inspectionAPIUrl + '/User/'+this.data.id, this.firstFormGroup.value)
           .subscribe(
@@ -81,7 +78,6 @@ export class UserModalComponent implements OnInit {
       }
 
     }else{
-      console.log("Registrando...")
       if (this.firstFormGroup.valid) {
         this.service.postInModal(this.inspectionAPIUrl + '/User', this.firstFormGroup.value)
           .subscribe(

@@ -15,6 +15,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UserModalComponent } from './modals/user-modal/user-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicationUpdateModalComponent } from './modals/application-update-modal/application-update-modal.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 
@@ -38,7 +43,11 @@ import { ApplicationUpdateModalComponent } from './modals/application-update-mod
     ApplicationModule,
     MatDialogModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatInputModule
   ]
 })
 export class CreditModule { }

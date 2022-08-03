@@ -3,6 +3,59 @@
     <h4>Usuarios</h4>
     <hr>
     <div class="btn_new"><button (click)="openDialog('1000ms','500ms','')" class="btn btn-info btn-sm">Nuevo <i class="bi bi-plus-circle-fill"></i></button></div><br>
+    <div class="row">
+        <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
+            </mat-form-field>
+          </div>
+          
+          <div class="example-container mat-elevation-z8">
+          
+            <mat-table [dataSource]="dataSource" matSort>
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+              </ng-container>
+          
+              <!-- User Column -->
+              <ng-container matColumnDef="Usuario">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.nickName}} </mat-cell>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="Nombres y apellidos">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres y apellidos </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="Correo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="Acciones">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
+                <mat-cell *matCellDef="let row" > 
+                    <button class="btn btn-info btn-sm mx-1" (click)="update(row.id)"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-danger btn-sm " (click)="delete(row.id)"><i class="bi bi-trash"></i></button>
+                </mat-cell>
+              </ng-container>
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;">
+              </mat-row>
+            </mat-table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+          </div>
+    </div>
+    <!--
     <table class="table">
         <thead>
             <th>Nro</th>
@@ -24,4 +77,5 @@
             </tr>
         </tbody>
     </table>
+    -->
 </div>
