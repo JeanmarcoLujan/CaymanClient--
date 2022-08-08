@@ -19,6 +19,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
+import { AreaModalComponent } from './modals/area-modal/area-modal.component';
+import { RoleModalComponent } from './modals/role-modal/role-modal.component';
 
 
 
@@ -32,7 +34,9 @@ import {MatInputModule} from '@angular/material/input';
     CustomerComponent,
     ApplicationComponent,
     UserModalComponent,
-    ApplicationUpdateModalComponent
+    ApplicationUpdateModalComponent,
+    AreaModalComponent,
+    RoleModalComponent
   ],
   imports: [
     CommonModule,

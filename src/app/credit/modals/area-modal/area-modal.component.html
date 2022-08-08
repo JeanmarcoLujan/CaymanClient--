@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Área</h1>
+<div mat-dialog-content>
+    <form (ngSubmit)="submit()" [formGroup]="firstFormGroup">
+        <input type="text" hidden class="form-control" formControlName="id" >
+        <div class="form-group">
+            <label>Área</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Área">
+        </div>        
+        <br>
+        <div class="form-group">
+            <button mat-button mat-dialog-close class="btn btn-danger btn-sm mx-1">Cerrar</button>
+            <button type="submit" class="btn btn-info btn-sm" *ngIf="!updating" >Registrar</button>
+            <button type="submit" class="btn btn-info btn-sm" *ngIf="updating" >Actualizar</button>
+        </div>
+        
+    </form>
+</div>

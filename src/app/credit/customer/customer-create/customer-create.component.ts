@@ -91,6 +91,8 @@ export class CustomerCreateComponent implements OnInit {
       documentType: this.person.documentType,
       documentNumber : this.person.documentNumber
     }
+
+    //console.log(data);
  
     this.service.post(this.inspectionAPIUrl + '/Equifax', data)
       .subscribe(

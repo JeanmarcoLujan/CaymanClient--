@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Rol</h1>
+<div mat-dialog-content>
+    <form (ngSubmit)="submit()" [formGroup]="firstFormGroup">
+        <input type="text" hidden class="form-control" formControlName="id" >
+        <div class="form-group">
+            <label>Rol</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Rol">
+        </div>        
+        <br>
+        <div class="form-group">
+            <button mat-button mat-dialog-close class="btn btn-danger btn-sm mx-1">Cerrar</button>
+            <button type="submit" class="btn btn-info btn-sm" *ngIf="!updating" >Registrar</button>
+            <button type="submit" class="btn btn-info btn-sm" *ngIf="updating" >Actualizar</button>
+        </div>
+        
+    </form>
+</div>
