@@ -3,37 +3,72 @@
     <h4>Clientes</h4>
     <hr>
     <div class="btn_new"><button [routerLink]="['/cliente/crear']" class="btn btn-info btn-sm">Nuevo <i class="bi bi-plus-circle-fill"></i></button></div><br>
-    <table class="table">
-        <thead>
-            <th>Nro</th>
-            <th colspan="3" align="center">Documento </th>
-            <th>Correo</th>
-            <th>Teléfono</th>
-            <th> </th>
-        </thead>
-        <thead>
-            <th></th>
-            <th>Tipo </th>
-            <th>Numero </th>
-            <th>Apellidos y nombres </th>
-            <th></th>
-            <th></th>
-            <th> </th>
-        </thead>
-        <tbody>
+    <div class="row">
+        <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
+            </mat-form-field>
+          </div>
+          
+          <div class="example-container mat-elevation-z8">
+          
+            <mat-table [dataSource]="dataSource" matSort>
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+              </ng-container>
+          
+              <!-- Type of doc Column -->
+              <ng-container matColumnDef="Tipo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.docType.name}} </mat-cell>
+              </ng-container>
+          
+              <!-- Numer of doc Column -->
+              <ng-container matColumnDef="Numero">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Número </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.numDoc}} </mat-cell>
+              </ng-container>
 
-            <tr *ngFor="let item of customerList$! | async">
-                <td>{{item.id}}</td>
-                <td>{{item.docType.name}}</td>
-                <td>{{item.numDoc}}</td>
-                <td>{{item.nameDoc}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.phone}}</td>
-                <td>
-                    <button class="btn btn-info btn-sm mr-1"><i class="bi bi-pencil-square"></i></button>
-                    <button class="btn btn-danger btn-sm mr-2"><i class="bi bi-trash"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+              <!-- Name Column -->
+              <ng-container matColumnDef="Nombres">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres y apellidos </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.nameDoc}} </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="Correo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="telefono">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.phone}} </mat-cell>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="Acciones">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
+                <mat-cell *matCellDef="let row" > 
+                    <button class="btn btn-info btn-sm mx-1"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-warning btn-sm mx-1" [routerLink]="['/cliente/ver/', row.id]"><i class="bi bi-eye-fill"></i></button>
+                    <button class="btn btn-danger btn-sm mx-1" (click)="delete(row.id)"><i class="bi bi-trash"></i></button>
+                    
+                </mat-cell>
+              </ng-container>
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;">
+              </mat-row>
+            </mat-table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+          </div>
+    </div>
+    
+
 </div>

@@ -55,27 +55,4 @@
             <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
           </div>
     </div>
-    <!--
-    <table class="table">
-        <thead>
-            <th>Nro</th>
-            <th>Usuario</th>
-            <th>Nombres</th>
-            <th>Email</th>
-            <th></th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of userList$! | async; let indice=index;">
-                <td>{{indice+1}}</td>
-                <td>{{item.nickName}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.email}}</td>
-                <td>
-                    <button class="btn btn-info btn-sm mx-1" (click)="update(item.id)"><i class="bi bi-pencil-square"></i></button>
-                    <button class="btn btn-danger btn-sm " (click)="delete(item.id)"><i class="bi bi-trash"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    -->
 </div>

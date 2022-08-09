@@ -14,6 +14,7 @@ import { ApplicationListComponent } from './application/application-list/applica
 import { ApplicationCreateComponent } from './application/application-create/application-create.component';
 import { ApplicationInspectionComponent } from './application/application-inspection/application-inspection.component';
 import { ApplicationApprovalComponent } from './application/application-approval/application-approval.component';
+import { CustomerShowComponent } from './customer/customer-show/customer-show.component';
 
 const routes: Routes = [
   {
@@ -32,8 +33,8 @@ const routes: Routes = [
     path: 'cliente', component: CustomerComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: CustomerListComponent },
-      { path: 'crear', component: CustomerCreateComponent }
-
+      { path: 'crear', component: CustomerCreateComponent },
+      { path: 'ver/:id', component: CustomerShowComponent }
     ]
   },
 

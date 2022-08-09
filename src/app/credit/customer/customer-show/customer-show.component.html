@@ -1,0 +1,28 @@
+<div class="container">
+    <h4>Detalle cliente</h4>
+    <hr>
+    <div class="btn_new"><button [routerLink]="['/cliente']" class="btn btn-light btn-sm"><i class="bi bi-arrow-left"></i>
+        Volver</button></div><br>
+    <table class="table">
+        <tr>
+            <td>Nombres</td>
+            <td>{{customer.nameDoc}}</td>
+        </tr>
+        <tr>
+            <td>DNI</td>
+            <td>{{customer.numDoc}}</td>
+        </tr>
+        <tr>
+            <td>Correo</td>
+            <td>{{customer.email}}</td>
+        </tr>
+        <tr>
+            <td>Teléfono</td>
+            <td>{{customer.phone}}</td>
+        </tr>
+        <tr>
+            <td>Dirección</td>
+            <td>{{customer.address}}</td>
+        </tr>
+    </table>
+</div>

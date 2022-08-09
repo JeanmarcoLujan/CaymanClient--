@@ -15,7 +15,6 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class UserComponent implements OnInit {
 
-  userList$!: any;
   readonly inspectionAPIUrl = environment.baseUrl;
 
   displayedColumns = ['id', 'Usuario', 'Nombres y apellidos', 'Correo', 'Acciones'];
@@ -27,10 +26,6 @@ export class UserComponent implements OnInit {
   constructor(private service: CaymanAPIService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    /*
-    this.userList$ = this.service.getAll(this.inspectionAPIUrl + '/User');
-    
-    */
     this.getUsers();
     this.service.requiredRefresh.subscribe(r => {
       this.getUsers();

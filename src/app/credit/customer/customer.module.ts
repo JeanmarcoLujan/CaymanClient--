@@ -6,18 +6,28 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { CustomerShowComponent } from './customer-show/customer-show.component';
 
 @NgModule({
   declarations: [
     CustomerListComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    CustomerShowComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatInputModule
   ]
 })
 export class CustomerModule { }
