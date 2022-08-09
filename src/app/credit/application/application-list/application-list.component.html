@@ -4,29 +4,71 @@
     <hr>
     <div class="btn_new"><button [routerLink]="['/solicitud/crear']" class="btn btn-info btn-sm">Nuevo <i
                 class="bi bi-plus-circle-fill"></i></button></div><br>
-    <table class="table">
-        <thead>
-            <th>Nro</th>
-            <th>Cliente </th>
-            <th>Producto</th>
-            <th>Producto crediticio</th>
-            <th>Garantia</th>
-        </thead>
-        <tbody>
 
-            <tr *ngFor="let item of solicitudList$! | async; let indice=index;">
-                <td>{{indice+1}}</td>
-                <td>{{item.customer.nameDoc}}</td>
-                <td>{{item.product.name}}</td>
-                <td>{{item.creditProduct.name}}</td>
-                <td>{{item.assurance.name}}</td>
-                <td>
-                    <button class="btn btn-success btn-sm mx-1" (click)="inspection(item.id)">inspeccionar</button>
-                    <button class="btn btn-info btn-sm mx-1"><i class="bi bi-pencil-square"></i></button>
-                    <button class="btn btn-danger btn-sm mr-2"><i class="bi bi-trash"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Filtro">
+            </mat-form-field>
+        </div>
+
+        <div class="example-container mat-elevation-z8">
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="Nro">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nro </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                </ng-container>
+
+                <!-- Type of doc Column -->
+                <ng-container matColumnDef="Cliente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.customer.nameDoc}} </mat-cell>
+                </ng-container>
+
+                <!-- Numer of doc Column -->
+                <ng-container matColumnDef="Producto">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Producto </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.product.name}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="ProductoCrediticio">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Producto Crediticio </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.creditProduct.name}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Estado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+                    <mat-cell *matCellDef="let row" > 
+                        <button *ngIf="row.state==null">Creado</button>
+                        <button *ngIf="row.state == 2">En inspección</button>
+                        <button *ngIf="row.state == 3">En evaluación</button>
+                        <button *ngIf="row.state == 4">Confirmado</button>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Acciones">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <button class="btn btn-success btn-sm mx-1" *ngIf="row.state==null" (click)="inspection(row.id)">Asignar</button>
+                        <button class="btn btn-success btn-sm mx-1" *ngIf="row.state == 2" (click)="inspection(row.id)">Inspeccionar</button>
+                        <button class="btn btn-info btn-sm mx-1"><i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-danger btn-sm mr-2" *ngIf="row.state==null" (click)="delete(row.id)"><i class="bi bi-trash"></i></button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
 
 </div>
